@@ -1,0 +1,28 @@
+The dataset used in the project was thoroughly cleaned as it contained empty columns, NULL values, numbers in text form etc. 
+
+Step-by-step cleaning process is as follows:
+
+1. Deleted columns Browser, OS, City, Country & Referrer completely as no data was available for these columns
+
+2. Edited column (Q1 - which title best fits for your current role?)
+	The column consist of an other options which had several different roles which were not required. So, I split the column using '(' and ')' as the 	delimeters. Then I deleted the text in-front of 'others' and just kept the keyword 'others' which was required. 
+
+3. Edited column (Q3 -  Current yearly salary (in USD)?)
+	This colums consists of the salary range in text form and a hyphen (-) in between the range. To extract an average salary which was the minimum req., I 	split the column using the digit to non-digit feature and removed all the text, keeping just the numbers of the two-end ranges. Then, I made another 	column where I took the mean of the salary, and used that as the main req. data for the column 	of salary and numbered it 3.1 and changed it from text 	format to integer format.
+
+4. Edited column (Q4 - What industry do you work in?)
+	The column consist of an other options which had several different roles which were not required. So, I split the column using '(' and ')' as the 			delimeters. Then I deleted the text in-front of 'others' and just kept the keyword 'others' which was required. 
+
+5. Edited column (Q11 - Which country do you live in?)
+	The column consist of an other options which had several different roles which were not required. So, I split the column using '(' and ')' as the 			delimeters. Then I deleted the text in-front of 'others' and just kept the keyword 'others' which was required. 
+
+
+6. Edited column (Q13 - Ethnicity?)
+	The column consist of an other options which had several different roles which were not required. So, I split the column using '(' and ')' as the 			delimeters. Then I deleted the text in-front of 'others' and just kept the keyword 'others' which was required. 
+
+
+7. Edited values in column (Q3 -  Current yearly salary (in USD)?)
+	In some rows, there wasn't an ending range value, so we cannot find out average in that case (eg. 250k+). So, first we filtered out these rows and using 	replace method, I replaced the empty cells with the same value as the starting range values and then found out there average salaries as the req. data.
+
+8. Changed the regional settings for date format to sync with the OS' date format (Date Taken (America/New-York))
+	In this column, there was an error where some of the date rows were returning an error signal. This happened because POWER BI editor used the OS' date 	format to analyse the dates in the dataset. The dataset used in the project depicted the dates of America and New York in the form of american date format 	while my OS' date format was set to Indian date format. So, to fix this, I changed the regional settings to be set as per English(United States). On doing 	this, the POWER BI editor analysed the given dates in american date format only, which is what it should have done originally. #error resolved
