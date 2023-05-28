@@ -1,1 +1,2 @@
 In my first data analysis (DA) project, I have at my disposal a dataset containing information about Data Professionals and their job-related queries. I have conducted a thorough and comprehensive analysis of this dataset, with the intention of uncovering valuable and actionable insights.
+The dashboard for the dataset is made using POWER BI editor, but the dataset is also analysed and visualised using Python language as well, diplaying the skills of Power BI and Python both. 
