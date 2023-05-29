@@ -1,0 +1,56 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import cufflinks as cf
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+ds = pd.read_csv('dataset.csv', encoding='cp1252')
+ds.head()
+
+
+DATA CLEANING PROCESS
+
+#removing columns with all NULL values (empty columns)
+ds1 = ds.drop(['Browser','OS','City','Country','Referrer'], axis=1)
+ds1.head()
+
+#splitting column named "Q1 - Which Title Best Fits your Current Role?"
+ds1['Job Role'] = ds1['Q1 - Which Title Best Fits your Current Role?'].str.split("(").str.get(0)
+ds1['Q1 - Which Title Best Fits your Current Role?'] = ds1['Job Role']
+ds1 = ds1.drop('Q1 - Which Title Best Fits your Current Role?', axis=1)
+ds1.head()
+
+#splitting column named "Q4 - What Industry do you work in?"
+ds1['Industry'] = ds1['Q4 - What Industry do you work in?'].str.split("(").str.get(0)
+ds1['Q4 - What Industry do you work in?'] = ds1['Industry']
+ds1 = ds1.drop('Q4 - What Industry do you work in?', axis=1)
+ds1.head()
+
+#splitting the columns named "Q5 - Favorite Programming Language"
+ds1['Programming Lang.'] = ds1['Q5 - Favorite Programming Language'].str.split(":").str.get(0)
+ds1['Q5 - Favorite Programming Language'] = ds1['Programming Lang.']
+ds1 = ds1.drop('Q5 - Favorite Programming Language',axis=1)
+ds1.head()
+
+#splitting the column "Q8 - If you were to look for a new job today, what would be the most important thing to you?"
+ds1['Important thing for new job'] = ds1['Q8 - If you were to look for a new job today, what would be the most important thing to you?'].str.split("(").str.get(0)
+ds1['Q8 - If you were to look for a new job today, what would be the most important thing to you?'] = ds1['Important thing for new job']
+ds1 = ds1.drop('Q8 - If you were to look for a new job today, what would be the most important thing to you?',axis=1)
+ds1.head()
+
+#splitting the column "Q11 - Which Country do you live in?"
+ds1['Country'] = ds1['Q11 - Which Country do you live in?'].str.split("(").str.get(0)
+ds1['Q11 - Which Country do you live in?'] = ds1['Country']
+ds1 = ds1.drop('Q11 - Which Country do you live in?',axis=1)
+ds1.head()
+
+#splitting the column "Q13 - Ethnicity"
+ds1['Ethnicity'] = ds1['Q13 - Ethnicity'].str.split("(").str.get(0)
+ds1['Q13 - Ethnicity'] = ds1['Ethnicity']
+ds1 = ds1.drop('Q13 - Ethnicity',axis=1)
+ds1.head()
+
+
+
+
